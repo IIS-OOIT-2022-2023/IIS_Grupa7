@@ -35,6 +35,7 @@ public class HelloWorld {
 		}
 		
 		System.out.println(factoriel);
+		System.out.println("commit");
 		
 	}
 
