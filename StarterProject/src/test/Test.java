@@ -1,5 +1,6 @@
 package test;
 import geometry.Point;
+import geometry.Line;
 
 public class Test {
 
@@ -58,9 +59,19 @@ public class Test {
 		double distance = point2.distance(point1);
 		System.out.println(distance);
 		
+		System.out.println("********vezbe 2********");
+		Point startPoint = new Point(10, 10);
+		Point endPoint = new Point(20, 20);
+		Line line = new Line(startPoint, endPoint);
+		System.out.println(line);
 		
-
-
+		Point lineStartPoint = line.getStartPoint();
+		int xlineStartPoint = lineStartPoint.getX();
+		int ylineStartPoint = lineStartPoint.getY();
+		System.out.println("(" + xlineStartPoint + ", " + ylineStartPoint + ")");
+		System.out.println("(" + line.getStartPoint().getX() + ", " + line.getStartPoint().getY() + ")"); //(x , y)
+			
+		System.out.println(line.lenght());
 	}
 
 }
