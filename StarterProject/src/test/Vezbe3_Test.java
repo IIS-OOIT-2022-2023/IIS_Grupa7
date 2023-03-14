@@ -36,9 +36,25 @@ public class Vezbe3_Test {
 		
 		l1.getStartPoint().setX(l1.getEndPoint().getY());
 
+		//TODO:
 		// 5. Postaviti x koordinatu krajnje tacke l1 na vrednost
 		// duzine linije l1 umanjene za vrednost zbira x i y
 		// koordinate pocetne tacke linije l1
+
+	
+		// - napraviti pravouganik r1 pozivom podrazumevanog konstruktora
+		// - napraviti krug c1 pozivom podrazumevanog konstruktora
+
+		// 6. Postaviti x koordinatu tacke gore levo pravougaonika
+		// r1 na vrednost 10 i y koordinatu na vrednost 15
+
+
+		// 7. Postaviti centar kruga c1 na koordinate tacke
+		// gore levo od r1
+
+
+		// 8. Postaviti x koordinatu centra kruga c1 na vrednost razlike
+		// povrsine pravougaonika r1 i y koordinate pocetne tacke linije l1
 
 	}
 
