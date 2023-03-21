@@ -21,14 +21,27 @@ public class Point {
 	poziv konstruktora vrsi kreiranje objekta na heap-u
 	naziv konstruktora mora biti isti kao naziv klase u kojoj je definisan
 	konstruktor nema specifiran tip povratne vrednosti (ni void)*/
+	/*Point*/
 	public Point() {
 		System.out.println("Ovo je poziv konstruktora");
 	}
 	
+	/*overloading - preklapanje naziva metoda, pridruzivanje istog naziva razlicitim metodama
+	- metode se razlikuju po POTPISU
+	POTPIS METODE = naziv + niz tipova podataka koji su pridruzeni parametrima metode
+	- preklopljene metode moraju se razlikovati ili po broju parametara ili 
+	po redosledu tipova podataka koji su pridruzeni parametrima, tj. razlikuju se po potpisu
+	*/
 	public Point(int x, int y) {
-		System.out.println(this);
+		//System.out.println(this);
 		this.x = x;
 		this.y = y;
+	}
+	
+	//this() - poziv konstruktora klase, MORA biti prva linija koda unutar konstruktora 
+	public Point(int x, int y, boolean selected) {
+		this(x, y);
+		this.selected = selected;
 	}
 	
 	public void print() {
@@ -73,6 +86,26 @@ public class Point {
 		int sumOfSquares = dx*dx + dy*dy;
 		double result = Math.sqrt(sumOfSquares);
 		return result;
+	}
+	
+	/*overriding - redefinisanje metoda 
+	- toString i equals metode definisane su u klasi Object, redefinisemo ih za objekte klase Point
+	*/
+	@Override //anotacija u Javi, nije obavezna, ali je dobra praksa navoditi je kada se vrsi redefinisanje
+	public String toString() {
+		return "(" + this.x + "," + this.y + ")";
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Point) {
+			//downcast - kastovanje objekta iz objekta natklase u objekat potklase
+			Point pom = (Point) obj;
+			return (this.x == pom.x && this.y == pom.y);
+			
+		}else {
+			return false;
+		}
 	}
 	
 }

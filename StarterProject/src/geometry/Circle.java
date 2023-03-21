@@ -13,6 +13,11 @@ public class Circle {
 		this.radius = radius;
 		this.center = center;
 	}
+	
+	public Circle(Point center, int radius, boolean selected) {
+		this(center, radius);
+		this.selected = selected;
+	}
 
 	public double area() {
 		return this.radius*this.radius*Math.PI;
@@ -44,6 +49,21 @@ public class Circle {
 
 	public void setSelected(boolean selected) {
 		this.selected = selected;
+	}
+	
+	@Override
+	public String toString() {
+		//Center = (x,y), radius = radius
+		return "Center = " + this.center.toString() + ", radius = " + this.radius;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Circle) {
+			Circle c = (Circle)obj;
+			return (this.getCenter().equals(c.getCenter()) && this.getRadius() == c.getRadius());
+		}
+		return false;
 	}
 
 }
