@@ -25,7 +25,7 @@ public class Vezbe4_Test {
 		}if(point instanceof Object) { //true
 			System.out.println("Tacka point je instanca klase Object");
 		}
-		
+
 		
 		Point point1 = new Point(50, 50, false);
 		Point point3 = point1;

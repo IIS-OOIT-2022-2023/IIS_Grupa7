@@ -71,7 +71,7 @@ public class Test {
 		System.out.println("(" + xlineStartPoint + ", " + ylineStartPoint + ")");
 		System.out.println("(" + line.getStartPoint().getX() + ", " + line.getStartPoint().getY() + ")"); //(x , y)
 			
-		System.out.println(line.lenght());
+		System.out.println(line.length());
 	}
 
 }

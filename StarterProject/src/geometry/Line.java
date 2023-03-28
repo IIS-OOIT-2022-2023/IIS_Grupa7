@@ -45,10 +45,18 @@ public class Line {
 		this.selected = selected;
 	}
 	
-	public double lenght() {
+	public double length() {
 		//duzinu linije racunamo kao udaljenost endPoint tacke i startPoint tacke
 		//koristimo distance metodu definisanu u Point klasi
 		return this.startPoint.distance(this.endPoint);
+	}
+	
+	public boolean contains(int x, int y) {
+		return this.startPoint.distance(x, y) + this.endPoint.distance(x,y) - this.length() <= 2;
+	}
+	
+	public boolean contains(Point click) {
+		return this.startPoint.distance(click) + this.endPoint.distance(click) - this.length() <= 2;
 	}
 	
 	@Override

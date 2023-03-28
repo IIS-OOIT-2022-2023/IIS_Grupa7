@@ -26,6 +26,14 @@ public class Circle {
 	public double circumference() {
 		return 2*this.radius*Math.PI;
 	}
+	
+	public boolean contains(int x, int y) {
+		return this.center.distance(x, y) <= this.radius;
+	}
+	
+	public boolean contains(Point point) {
+		return this.center.distance(point.getX(), point.getY()) <= this.radius;
+	}
 
 	public int getRadius() {
 		return this.radius;

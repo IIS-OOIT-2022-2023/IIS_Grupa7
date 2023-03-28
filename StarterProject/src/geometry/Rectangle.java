@@ -29,6 +29,15 @@ public class Rectangle {
 	public double circumference() {
 		return 2*(this.height + this.width);
 	}
+	
+	public boolean contains(int x, int y) {
+		return (x > this.upperLeftPoint.getX() && x < this.upperLeftPoint.getX() + this.width &&
+				y > this.upperLeftPoint.getY() && y < this.upperLeftPoint.getY() + this.height);
+	}
+	
+	public boolean contains(Point click) {
+		return contains(click.getX(), click.getY());
+	}
 
 	public Point getUpperLeftPoint() {
 		return this.upperLeftPoint;

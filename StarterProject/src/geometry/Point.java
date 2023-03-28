@@ -15,6 +15,15 @@ public class Point {
 	private int x;
 	private int y;
 	private boolean selected;
+	/**
+	 * Staticka polja koriste se da cuvaju vrednosti nekog obelezja koje je zajednicko za sve objekte
+	 * te klase. Statickim metodama koja nisu javna pristupa se koriscenjem staickih metoda pristupa.
+	 */
+	private static int maxX  = 500;
+	
+	public static int getMaxX() {
+		return maxX;
+	}
 	
 	
 	/*konstruktor - posebna metoda klase koja sluzi za instanciranje objekata
@@ -88,6 +97,23 @@ public class Point {
 		return result;
 	}
 	
+	public double distance(int x, int y) {
+		int dx = this.x - x;
+		int dy = this.y - y;
+		int sumOfSquares = dx*dx + dy*dy;
+		double result = Math.sqrt(sumOfSquares);
+		return result;
+	}
+	
+	
+	public boolean contains(int x, int y) {
+		return this.distance(new Point(x, y)) <= 2;
+	} 
+	
+	public boolean contains(Point click) {
+		return this.distance(click) <= 2;
+	}
+	
 	/*overriding - redefinisanje metoda 
 	- toString i equals metode definisane su u klasi Object, redefinisemo ih za objekte klase Point
 	*/
@@ -107,5 +133,13 @@ public class Point {
 			return false;
 		}
 	}
+	
+	/*
+	 * Staticke metode se pozivaju nad klasom, nije potrebno kreirati objekat.
+	 * */
+	public static void staticMethod() {
+		System.out.println("Ovo je staticka metoda");
+	}
+	
 	
 }
