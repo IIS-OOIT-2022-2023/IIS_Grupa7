@@ -1,5 +1,7 @@
 package geometry;
 
+import java.awt.Graphics;
+
 /*nasledjivanje omogucava da se postojece klase koriste za kreiranje novih
 nalsedjuju se svi atributi i metode koji nisu deklarisani kao private*/
 public class Donut extends Circle {
@@ -38,6 +40,12 @@ public class Donut extends Circle {
 	}
 	public void setInnerRadius(int innerRadius) {
 		this.innerRadius = innerRadius;
+	}
+	
+	public void draw(Graphics g) {
+		super.draw(g);
+		g.drawOval(this.getCenter().getX() - this.innerRadius, this.getCenter().getY() - this.innerRadius, this.innerRadius * 2, this.innerRadius * 2);
+
 	}
 	
 	/*super se moze iskoristiti kako bi se pristupilo public varijabli ili metodi nadklase*/

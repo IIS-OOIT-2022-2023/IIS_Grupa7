@@ -67,6 +67,8 @@ public class Vezbe5_Test {
 		Point p = new Point();
 		System.out.println(p.contains(0,0));
 		Point.staticMethod();
+		
+
 	}
 	
 
