@@ -1,5 +1,6 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Rectangle extends Shape{
@@ -67,6 +68,15 @@ public class Rectangle extends Shape{
 	
 	public void draw(Graphics g) {
 		g.drawRect(this.upperLeftPoint.getX(), this.upperLeftPoint.getY(), this.width, this.height);
+		if(isSelected()) {
+			g.setColor(Color.blue);
+			g.drawRect(upperLeftPoint.getX() - 2, upperLeftPoint.getY() - 2, 4, 4);
+			g.drawRect(upperLeftPoint.getX() + width - 2, upperLeftPoint.getY() - 2, 4, 4);
+			g.drawRect(upperLeftPoint.getX() - 2, upperLeftPoint.getY() + height - 2, 4, 4);
+			g.drawRect(upperLeftPoint.getX() + width  - 2, upperLeftPoint.getY() + height - 2, 4, 4);
+			g.setColor(Color.black);
+		}
+
 	}
 	
 	@Override
@@ -85,5 +95,22 @@ public class Rectangle extends Shape{
 			return false;
 		}
 	}
+
+	@Override
+	public void moveTo(int x, int y) {
+		this.upperLeftPoint.moveTo(x, y);
+	}
+	@Override
+	public void moveBy(int byX, int byY) {
+		this.upperLeftPoint.moveBy(byX, byY);		
+	}
+	@Override
+	public int compareTo(Object o) {
+		if (o instanceof Rectangle) {
+			return (int) (this.area() - ((Rectangle) o).area());
+		}
+		return 0;
+	}
+
 
 }

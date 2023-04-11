@@ -1,5 +1,6 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 /*klasa u Java programu jedinstveno odredjena specifikacijom koja sadrzi
@@ -10,7 +11,7 @@ modeluje stanja i ponasanja objekata koji pripadaju datoj klasi objekata realnog
 sablon za kreiranje objekata
 slozen tip podatka
 */
-public class Point extends Shape{
+public class Point extends Shape {
 
 	/*atributi klase - modeluju stanje objekata
 	inkapsulacija - skrivanje sadrzaja klase (od drugih klasa), ostvaruje se putem specifikatora pristupa
@@ -84,7 +85,7 @@ public class Point extends Shape{
 	
 	public double distance(Point point) {
 		//dx dy -> dx*dx+dy*dy -> sqrt
-		System.out.println("Referenca na tacku koja je pozvala metodu: " + this + ", referenca tacke koja je parametar metode: "+ point);
+		//System.out.println("Referenca na tacku koja je pozvala metodu: " + this + ", referenca tacke koja je parametar metode: "+ point);
 		int dx = this.x - point.x;
 		int dy = this.y - point.y;
 		int sumOfSquares = dx*dx + dy*dy;
@@ -112,6 +113,12 @@ public class Point extends Shape{
 	public void draw(Graphics g) {
 		g.drawLine(this.x, this.y - 2, this.x, this.y + 2);
 		g.drawLine(this.x - 2, this.y, this.x + 2, this.y);
+		if(isSelected()) {
+			g.setColor(Color.BLUE);
+			g.drawRect(x-2, y-2, 4, 4);
+			g.setColor(Color.black);
+		}
+
 	}
 	
 	/*overriding - redefinisanje metoda 
@@ -139,6 +146,33 @@ public class Point extends Shape{
 	 * */
 	public static void staticMethod() {
 		System.out.println("Ovo je staticka metoda");
+	}
+
+
+	@Override
+	public void moveBy(int x, int y) {
+		this.x += x;
+		this.y += y;
+		
+	}
+
+
+	@Override
+	public void moveTo(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+
+	@Override
+	public int compareTo(Object o) {
+		if(o instanceof Point) {
+			double d1 = this.distance(new Point(0,0));
+			double d2 = ((Point) o).distance(new Point(0,0));
+			return (int)(d1 - d2);
+		}
+		return 0;
+		
 	}
 	
 	

@@ -2,7 +2,7 @@ package geometry;
 
 import java.awt.Graphics;
 
-public abstract class Shape {
+public abstract class Shape implements Moveable, Comparable{
 
 	/*NAPOMENA:
 	Kada klasa (npr. Point) prosiruje (nasledjuje) neku klasu (npr. Shape),
@@ -13,6 +13,9 @@ public abstract class Shape {
 	Do greske dolazi ukoliko nadklasa nema definisan podrazumevani konstruktor bez parametara,
 	a ima definisane druge konstruktore (u ovom slucaju Java ne generise ugradjeni konstruktor bez parametara)
 	*/
+	
+	private boolean selected;
+
 
 	public Shape() {
 		
@@ -22,7 +25,6 @@ public abstract class Shape {
 		this.selected = selected;
 	}
 	
-	private boolean selected;
 	
 	public void setSelected(boolean selected) {
 		this.selected = selected;

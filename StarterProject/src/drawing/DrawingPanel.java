@@ -1,6 +1,8 @@
 package drawing;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JPanel;
 
@@ -23,15 +25,22 @@ import geometry.*;
 
 public class DrawingPanel extends JPanel {
 
-	private Shape[] shapes;
+	private ArrayList<Shape> shapes = new ArrayList<Shape>();
 	
 	public DrawingPanel() {
-		shapes = new Shape[10];
-		shapes[0] = new Point(80, 100);
-		shapes[1] = new Line(new Point(200, 80), new Point(250, 180));
-		shapes[2] = new Circle(new Point(50,50), 40);
-		shapes[3] = new Rectangle(new Point(130,30), 40, 20);
-		shapes[4] = new Donut(new Point(100, 150), 40, 20);
+		shapes.add(new Point(80, 100));
+		shapes.add(new Line(new Point(200, 80), new Point(250, 180)));
+		shapes.add(new Circle(new Point(50,50), 40));
+		shapes.add(new Rectangle(new Point(130,30), 40, 20));
+		shapes.add(new Donut(new Point(100, 150), 40, 20));
+		
+		//VEZBE 8 Zadatak 1
+		Iterator<Shape> it=shapes.iterator();
+		while(it.hasNext()) {
+			it.next().moveBy(10, 0);
+		}
+		
+
 	}
 	
 	@Override
@@ -49,6 +58,7 @@ public class DrawingPanel extends JPanel {
 		mora da bude pre provere da li je instanca Circle
 		*/
 		
+		/*Shape[] shapes = new Shapes[5];
 		for(int i=0; i<5; i++) {
 			/*if(shapes[i] instanceof Point) {
 				Point p = (Point)shapes[i];
@@ -65,14 +75,31 @@ public class DrawingPanel extends JPanel {
 			}else if(shapes[i] instanceof Circle) {
 				Circle c = (Circle)shapes[i];
 				c.draw(g);
-			}*/
+			}
 			shapes[i].draw(g);
-		}
+		}*/
 		
+		//VEZBE 8 Zadatak 2
+		/*shapes.get(3).draw(g);
+		shapes.get(shapes.size()-1).draw(g);
+		shapes.remove(1);
+		shapes.get(1).draw(g);
+		shapes.get(3).draw(g);
+		shapes.add(3, new Line(new Point(50,50), new Point(30,30)));*/
 		
-		
-		
+		//VEZBE 8 Zadatak 4
+		/*Iterator<Shape> it=shapes.iterator();
+		while(it.hasNext()) {
+			Shape shape = it.next();
+			shape.setSelected(true);;
+			shape.draw(g);
+		}*/
+
 	
+		Iterator<Shape> it=shapes.iterator();
+		while(it.hasNext()) {
+			it.next().draw(g);
+		}
 		
 	}
 }
