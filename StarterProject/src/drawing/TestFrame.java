@@ -8,7 +8,7 @@ public class TestFrame {
 	 * Swing API klase obezbedjuju kreiranje grafickog korisnickog interfejsa aplikacije
 	 * 
 	 * Dele se na tri grupe: 
-	 * 1. kontejneri najviseg nivao (npr. JFrame),
+	 * 1. kontejneri najviseg nivoa (npr. JFrame),
 	 * 2. medjukontejneri (npr. JPanel) i
 	 * 3. komponente (npr. JTextField, JButton, JLabel)s 
 	 * 
@@ -25,6 +25,7 @@ public class TestFrame {
 		frame.getContentPane().add(panel);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setVisible(true);
+		
 	}
 
 }
